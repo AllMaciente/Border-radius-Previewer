@@ -25,7 +25,16 @@ function copyCSS() {
     var bl = document.getElementById('bottom-left').value || 0;
     var br = document.getElementById('bottom-right').value || 0;
 
-    var cssText = `border-radius: ${tl}px ${tr}px ${br}px ${bl}px;`;
+    var alteredValues = [tl, tr, br, bl].filter(value => value != 0);
+
+    // Se apenas um valor foi alterado, aplica a todos os cantos
+    if (alteredValues.length === 1) {
+        var cssText = `border-radius: ${alteredValues[0]}px`;
+    } else {
+        // Se mais de um valor foi alterado, aplica por lado
+        var cssText = `border-radius: ${tl}px ${tr}px ${br}px ${bl}px;`;
+    }
+
     
     navigator.clipboard.writeText(cssText).then(function() {
         alert('CSS copied to clipboard!');
