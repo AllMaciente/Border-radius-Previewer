@@ -59,3 +59,12 @@ button {
 button:hover {
     background-color: #313131;
 }
+
+input{
+    background-color: #313131;
+    border: none;
+    border-bottom: 2px solid #1d1d1d;
+    color: #d1d1d1;
+    outline: none;
+    font-weight: 900;
+}
